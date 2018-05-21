@@ -8,9 +8,9 @@ public class PlayerMovement : MonoBehaviour {
     [Tooltip("Player Movement speed.")]
     public float movementSpeed;
 
-    [SerializeField]
-    [Tooltip("Player Rotation speed.")]
-    public float rotationSpeed;
+    //[SerializeField]
+    //[Tooltip("Player Rotation speed.")]
+    //public float rotationSpeed;
 
     [SerializeField]
     [Tooltip("Canvas to be enabled upon leaving the area.")]
@@ -27,36 +27,33 @@ public class PlayerMovement : MonoBehaviour {
     void Update()
     {
         // Move upwards
-        if (Input.GetKey("w"))
+        if (Input.GetKey(KeyCode.W))
         {
-            gameObject.transform.position += new Vector3(0.0f, 0.0f, movementSpeed);
+            transform.position += transform.forward * movementSpeed;
         }
-        // Move downwards
-        if (Input.GetKey("s"))
+        if (Input.GetKey(KeyCode.S))
         {
-            gameObject.transform.position += new Vector3(0.0f, 0.0f, -movementSpeed);
+            transform.position += transform.forward * -movementSpeed;
         }
-        // Move leftwards
-        if (Input.GetKey("a"))
+        if (Input.GetKey(KeyCode.A))
         {
-            gameObject.transform.position += new Vector3(-movementSpeed, 0.0f, 0.0f);
+            transform.position += transform.right * -movementSpeed;
         }
-        // Move rightwards
-        if (Input.GetKey("d"))
+        if (Input.GetKey(KeyCode.D))
         {
-            gameObject.transform.position += new Vector3(movementSpeed, 0.0f, 0.0f);
+            transform.position += transform.right * movementSpeed;
         }
 
         // Rotate leftwards
-        if (Input.GetKey("left"))
-        {
-            gameObject.transform.Rotate(0, rotationSpeed, 0);
-        }
-        // Rotate rightwards
-        if (Input.GetKey("right"))
-        {
-            gameObject.transform.Rotate(0, -rotationSpeed, 0);
-        }
+        //if (Input.GetKey("left"))
+        //{
+        //    gameObject.transform.Rotate(0, rotationSpeed, 0);
+        //}
+        //// Rotate rightwards
+        //if (Input.GetKey("right"))
+        //{
+        //    gameObject.transform.Rotate(0, -rotationSpeed, 0);
+        //}
     }
 
     void OnCollisionEnter(Collision collision)
