@@ -19,9 +19,9 @@ public class PlayerMovement : MonoBehaviour {
     void Start()
     {
         // Set the player's position
-        gameObject.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+        //gameObject.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
         // Get the LeaveCanvas's Canvas component
-        LeaveCanvas.GetComponent<Canvas>();
+        //LeaveCanvas.GetComponent<Canvas>();
     }
 
     void Update()
@@ -29,19 +29,19 @@ public class PlayerMovement : MonoBehaviour {
         // Move upwards
         if (Input.GetKey(KeyCode.W))
         {
-            transform.position += transform.forward * movementSpeed;
+            transform.position += transform.forward * movementSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.position += transform.forward * -movementSpeed;
+            transform.position += transform.forward * -movementSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position += transform.right * -movementSpeed;
+            transform.position += transform.right * -movementSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position += transform.right * movementSpeed;
+            transform.position += transform.right * movementSpeed* Time.deltaTime;
         }
 
         // Rotate leftwards
@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour {
         if (collision.collider.tag == "Door")
         {
             // Enable canvas to display UI
-            LeaveCanvas.gameObject.SetActive(true);
+            //LeaveCanvas.gameObject.SetActive(true);
         }
 
         // If colliding with a Powerup

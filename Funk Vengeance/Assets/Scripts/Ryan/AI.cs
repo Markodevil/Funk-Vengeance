@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class AI : MonoBehaviour {
 
-    public bool MR_RED;
-    public bool MR_BLUE;
-    public bool MR_GREEN;
-    public bool MR_YELLOW;
-
     public float rotationSpeed = 1;
     public float rotationTimer = 5;
     [SerializeField]
