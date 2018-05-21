@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Ryan Test.unity
+    guid: 74eb94a9f1cac4d41a3ecfcb35ac534f
+  - enabled: 1
+    path: Assets/Scenes/Game Over.unity
+    guid: f25d4545762344540845c6d031d2e17b
