@@ -7,9 +7,21 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField]
     [Tooltip("Player Movement speed.")]
     public float movementSpeed;
+
+    [SerializeField]
+    [Tooltip("Player Rotation speed.")]
+    public float rotationSpeed;
+
+    [SerializeField]
+    [Tooltip("Canvas to be enabled upon leaving the area.")]
+    public Canvas LeaveCanvas;
+
     void Start()
     {
+        // Set the player's position
         gameObject.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+        // Get the LeaveCanvas's Canvas component
+        LeaveCanvas.GetComponent<Canvas>();
     }
 
     void Update()
@@ -34,6 +46,17 @@ public class PlayerMovement : MonoBehaviour {
         {
             gameObject.transform.position += new Vector3(movementSpeed, 0.0f, 0.0f);
         }
+
+        // Rotate leftwards
+        if (Input.GetKey("left"))
+        {
+            gameObject.transform.Rotate(0, rotationSpeed, 0);
+        }
+        // Rotate rightwards
+        if (Input.GetKey("right"))
+        {
+            gameObject.transform.Rotate(0, -rotationSpeed, 0);
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -48,13 +71,21 @@ public class PlayerMovement : MonoBehaviour {
         {
 
         }
+
         // If colliding with the Door
         if (collision.collider.tag == "Door")
         {
+            // Enable canvas to display UI
+            LeaveCanvas.gameObject.SetActive(true);
+        }
+
+        // If colliding with a Powerup
+        if (collision.collider.tag == "PowerUp")
+        {
 
         }
-        // If colliding with a Powerup
-        if (collision.collider.tag == "Powerup")
+        // If colliding with a Weapon
+        if (collision.collider.tag == "Weapon")
         {
 
         }
