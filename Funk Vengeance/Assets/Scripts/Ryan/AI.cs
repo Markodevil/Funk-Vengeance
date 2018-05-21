@@ -9,10 +9,8 @@ public class AI : MonoBehaviour {
     public bool MR_GREEN;
     public bool MR_YELLOW;
 
-    [HideInInspector]
-    public float rotationAmount = 90;
-    public float rotationTimer;
-
+    public float rotationSpeed = 1;
+    public float rotationTimer = 5;
     [SerializeField]
     private float time;
 
@@ -25,10 +23,13 @@ public class AI : MonoBehaviour {
 	void Update () {
         time += Time.deltaTime;
 
-        //if (time > rotationTimer)
-        //{
-            transform.Rotate(Vector3.up * Time.deltaTime, Space.World);
+        if (time < rotationTimer)
+        {
+            transform.Rotate(Vector3.up * rotationSpeed, Space.World);
+        }
+        if(time > 10)
+        {
             time = 0;
-        //}
+        }
     }
 }
