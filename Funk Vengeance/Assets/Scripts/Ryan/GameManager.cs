@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         }
         if (other.tag == "Door")
         {
-            Debug.Log("You win, do you whant to retry? (Hit Y/N)");
+            Debug.Log("You win, do you whant to retry?");
 
             GameOverCanvas.gameObject.SetActive(true);
             StopAllCoroutines();
@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour
                         SceneManager.LoadScene("Game Over");
                     }
                     break;
-                case "MR White":
+                case "MR WHITE":
                     if (target == 6)
                     {
                         Debug.Log("You Got Him Now get to the Door");
