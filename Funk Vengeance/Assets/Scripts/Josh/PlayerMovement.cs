@@ -8,20 +8,18 @@ public class PlayerMovement : MonoBehaviour {
     [Tooltip("Player Movement speed.")]
     public float movementSpeed;
 
-    //[SerializeField]
-    //[Tooltip("Player Rotation speed.")]
-    //public float rotationSpeed;
-
     [SerializeField]
-    [Tooltip("Canvas to be enabled upon leaving the area.")]
-    public Canvas LeaveCanvas;
+    [Tooltip("Canvas UIs.")]
+    public GameObject canvasUIs;
+
+    private UIManager uim;
 
     void Start()
     {
         // Set the player's position
         //gameObject.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
-        // Get the LeaveCanvas's Canvas component
-        //LeaveCanvas.GetComponent<Canvas>();
+
+        uim = canvasUIs.GetComponent<UIManager>();
     }
 
     void Update()
@@ -61,8 +59,10 @@ public class PlayerMovement : MonoBehaviour {
         // If colliding with the Door
         if (collision.collider.tag == "Door")
         {
-            // Enable canvas to display UI
-            //LeaveCanvas.gameObject.SetActive(true);
+            // Enable Victory canvas
+            uim.VictoryCanvas.gameObject.SetActive(true);
+            // Set timescale to 0 to pause the scene
+            uim.isPaused = false;
         }
 
         // If colliding with a Powerup

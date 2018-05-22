@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour {
     [Tooltip("Canvas for the Failure Menu.")]
     public Canvas FailureCanvas;
 
-    bool isPaused = false;
+    public bool isPaused = false;
 
     // Start
     void Start()
