@@ -87,8 +87,8 @@ public class UIManager : MonoBehaviour {
     {
         // Disable Pause canvas
         PauseCanvas.gameObject.SetActive(false);
-        // Set isPaused to true to pause the scene
-        isPaused = true;
+        // Set isPaused to false to unpause the scene
+        isPaused = false;
     }
     public void Gameplay_Pause_Quit()
     {
