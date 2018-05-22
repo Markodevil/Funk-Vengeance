@@ -6,8 +6,7 @@ public class AI : MonoBehaviour {
 
     public float rotationSpeed = 1;
     public float rotationTimer = 5;
-    [SerializeField]
-    private float time;
+    public float time;
 
     // Use this for initialization
     void Start () {
