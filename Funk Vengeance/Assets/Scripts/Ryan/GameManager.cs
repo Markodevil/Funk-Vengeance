@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : MonoBehaviour
 {
     public GameObject blade;
@@ -13,44 +14,53 @@ public class GameManager : MonoBehaviour
     private bool hasWon = false;
 
     private int target;
+
+    #region Target texts
     public Canvas GameOverCanvas;
+    public Canvas BladeGetText;
+    public GameObject TargetKilledText;
+    public GameObject WrongGuyText;
+
+    public GameObject MR_BLUETEXT;
+    public GameObject MR_REDTEXT;
+    public GameObject MR_YELLOWTEXT;
+    public GameObject MR_GREENTEXT;
+    public GameObject MR_WHITETEXT;
+    #endregion
 
     private int TargetPicker()
     {
         //random //1 - 6
-        switch(Random.Range(1,6))
+        switch (Random.Range(1, 6))
         {
             case 1:
-                Debug.Log("The target is MR Blue");
+                MR_BLUETEXT.gameObject.SetActive(true);
                 return 1;
             case 2:
-                Debug.Log("The target is MR Red");
+                MR_REDTEXT.gameObject.SetActive(true);
                 return 2;
             case 3:
-                Debug.Log("The target is MR Yellow");
+                MR_YELLOWTEXT.gameObject.SetActive(true);
                 return 3;
             case 4:
-                Debug.Log("The target is MR Green");
+                MR_GREENTEXT.gameObject.SetActive(true);
                 return 4;
             case 5:
-                Debug.Log("The target is MR Black");
+                MR_WHITETEXT.gameObject.SetActive(true);
                 return 5;
-            case 6:
-                Debug.Log("The target is MR White");
-                return 6;
         }
-        return 6;
+        return 5;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) &&  hasBlade == true)
+        if (Input.GetKeyDown(KeyCode.Space) && hasBlade == true)
         {
             KillMode = true;
             Debug.Log("Ready to kill");
         }
-        else if(Input.GetKeyUp(KeyCode.Space) && hasBlade == true)
+        else if (Input.GetKeyUp(KeyCode.Space) && hasBlade == true)
         {
             KillMode = false;
             Debug.Log("*Sheaths blade*");
@@ -60,7 +70,7 @@ public class GameManager : MonoBehaviour
         {
             GameOverCanvas.gameObject.SetActive(true);
         }
-        
+
     }
 
     public void LoadMenu()
@@ -74,9 +84,10 @@ public class GameManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Weapon")
+        if (other.tag == "Weapon" && hasBlade == false)
         {
             Debug.Log("You have the blade");
+            BladeGetText.gameObject.SetActive(true);
             //Kill mode is active 
             hasBlade = true;
             Destroy(other.gameObject);
@@ -84,8 +95,6 @@ public class GameManager : MonoBehaviour
         }
         if (other.tag == "Door")
         {
-            Debug.Log("You win, do you whant to retry?");
-
             hasWon = true;
             GameOverCanvas.gameObject.SetActive(true);
             StopAllCoroutines();
@@ -98,13 +107,13 @@ public class GameManager : MonoBehaviour
                 case "MR BLUE":
                     if (target == 1)
                     {
-                        Debug.Log("You Got Him Now get to the Door");
+                        TargetKilledText.gameObject.SetActive(true);
                         other.gameObject.GetComponent<Sight>().viewRadius = 0;
                         other.gameObject.GetComponent<AI>().enabled = false;
                     }
                     else
                     {
-                        Debug.Log("You killed the wrong guy!!!");
+                        WrongGuyText.gameObject.SetActive(true);
                         StopAllCoroutines();
                         Debug.Log("GameOver");
                         SceneManager.LoadScene("Game Over");
@@ -113,13 +122,13 @@ public class GameManager : MonoBehaviour
                 case "MR RED":
                     if (target == 2)
                     {
-                        Debug.Log("You Got Him Now get to the Door");
+                        TargetKilledText.gameObject.SetActive(true);
                         other.gameObject.GetComponent<Sight>().viewRadius = 0;
                         other.gameObject.GetComponent<AI>().enabled = false;
                     }
                     else
                     {
-                        Debug.Log("You killed the wrong guy!!!");
+                        WrongGuyText.gameObject.SetActive(true);
                         StopAllCoroutines();
                         Debug.Log("GameOver");
                         SceneManager.LoadScene("Game Over");
@@ -128,13 +137,13 @@ public class GameManager : MonoBehaviour
                 case "MR YELLOW":
                     if (target == 3)
                     {
-                        Debug.Log("You Got Him Now get to the Door");
+                        TargetKilledText.gameObject.SetActive(true);
                         other.gameObject.GetComponent<Sight>().viewRadius = 0;
                         other.gameObject.GetComponent<AI>().enabled = false;
                     }
                     else
                     {
-                        Debug.Log("You killed the wrong guy!!!");
+                        WrongGuyText.gameObject.SetActive(true);
                         StopAllCoroutines();
                         Debug.Log("GameOver");
                         SceneManager.LoadScene("Game Over");
@@ -143,47 +152,38 @@ public class GameManager : MonoBehaviour
                 case "MR GREEN":
                     if (target == 4)
                     {
-                        Debug.Log("You Got Him Now get to the Door");
+                        TargetKilledText.gameObject.SetActive(true);
                         other.gameObject.GetComponent<Sight>().viewRadius = 0;
                         other.gameObject.GetComponent<AI>().enabled = false;
                     }
                     else
                     {
-                        Debug.Log("You killed the wrong guy!!!");
-                        StopAllCoroutines();
-                        Debug.Log("GameOver");
-                        SceneManager.LoadScene("Game Over");
-                    }
-                    break;
-                case "MR BLACK":
-                    if (target == 5)
-                    {
-                        Debug.Log("You Got Him Now get to the Door");
-                        other.gameObject.GetComponent<Sight>().viewRadius = 0;
-                        other.gameObject.GetComponent<AI>().enabled = false;
-                    }
-                    else
-                    {
-                        Debug.Log("You killed the wrong guy!!!");
+                        WrongGuyText.gameObject.SetActive(true);
                         StopAllCoroutines();
                         Debug.Log("GameOver");
                         SceneManager.LoadScene("Game Over");
                     }
                     break;
                 case "MR WHITE":
-                    if (target == 6)
+                    if (target == 5)
                     {
-                        Debug.Log("You Got Him Now get to the Door");
+                        TargetKilledText.gameObject.SetActive(true);
                         other.gameObject.GetComponent<Sight>().viewRadius = 0;
                         other.gameObject.GetComponent<AI>().enabled = false;
                     }
                     else
                     {
-                        Debug.Log("You killed the wrong guy!!!");
+                        WrongGuyText.gameObject.SetActive(true);
                         StopAllCoroutines();
                         Debug.Log("GameOver");
                         SceneManager.LoadScene("Game Over");
                     }
+                    break;
+                case "MR BLACK":
+                    WrongGuyText.gameObject.SetActive(true);
+                    StopAllCoroutines();
+                    Debug.Log("GameOver");
+                    SceneManager.LoadScene("Game Over");
                     break;
             }
         }
