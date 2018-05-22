@@ -43,17 +43,6 @@ public class PlayerMovement : MonoBehaviour {
         {
             transform.position += transform.right * movementSpeed* Time.deltaTime;
         }
-
-        // Rotate leftwards
-        //if (Input.GetKey("left"))
-        //{
-        //    gameObject.transform.Rotate(0, rotationSpeed, 0);
-        //}
-        //// Rotate rightwards
-        //if (Input.GetKey("right"))
-        //{
-        //    gameObject.transform.Rotate(0, -rotationSpeed, 0);
-        //}
     }
 
     void OnCollisionEnter(Collision collision)
