@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
             KillMode = false;
             Debug.Log("*Sheaths blade*");
         }
+
         if (hasWon == true)
         {
             GameOverCanvas.gameObject.SetActive(true);
@@ -96,7 +97,11 @@ public class GameManager : MonoBehaviour
             {
                 case "MR BLUE":
                     if (target == 1)
+                    {
                         Debug.Log("You Got Him Now get to the Door");
+                        other.gameObject.GetComponent<Sight>().viewRadius = 0;
+                        other.gameObject.GetComponent<AI>().enabled = false;
+                    }
                     else
                     {
                         Debug.Log("You killed the wrong guy!!!");
@@ -107,7 +112,11 @@ public class GameManager : MonoBehaviour
                     break;
                 case "MR RED":
                     if (target == 2)
+                    {
                         Debug.Log("You Got Him Now get to the Door");
+                        other.gameObject.GetComponent<Sight>().viewRadius = 0;
+                        other.gameObject.GetComponent<AI>().enabled = false;
+                    }
                     else
                     {
                         Debug.Log("You killed the wrong guy!!!");
@@ -118,7 +127,11 @@ public class GameManager : MonoBehaviour
                     break;
                 case "MR YELLOW":
                     if (target == 3)
+                    {
                         Debug.Log("You Got Him Now get to the Door");
+                        other.gameObject.GetComponent<Sight>().viewRadius = 0;
+                        other.gameObject.GetComponent<AI>().enabled = false;
+                    }
                     else
                     {
                         Debug.Log("You killed the wrong guy!!!");
@@ -129,7 +142,11 @@ public class GameManager : MonoBehaviour
                     break;
                 case "MR GREEN":
                     if (target == 4)
+                    {
                         Debug.Log("You Got Him Now get to the Door");
+                        other.gameObject.GetComponent<Sight>().viewRadius = 0;
+                        other.gameObject.GetComponent<AI>().enabled = false;
+                    }
                     else
                     {
                         Debug.Log("You killed the wrong guy!!!");
@@ -140,7 +157,11 @@ public class GameManager : MonoBehaviour
                     break;
                 case "MR BLACK":
                     if (target == 5)
+                    {
                         Debug.Log("You Got Him Now get to the Door");
+                        other.gameObject.GetComponent<Sight>().viewRadius = 0;
+                        other.gameObject.GetComponent<AI>().enabled = false;
+                    }
                     else
                     {
                         Debug.Log("You killed the wrong guy!!!");
@@ -151,7 +172,11 @@ public class GameManager : MonoBehaviour
                     break;
                 case "MR WHITE":
                     if (target == 6)
+                    {
                         Debug.Log("You Got Him Now get to the Door");
+                        other.gameObject.GetComponent<Sight>().viewRadius = 0;
+                        other.gameObject.GetComponent<AI>().enabled = false;
+                    }
                     else
                     {
                         Debug.Log("You killed the wrong guy!!!");
