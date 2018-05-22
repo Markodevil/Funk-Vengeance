@@ -21,7 +21,7 @@ public class AI : MonoBehaviour {
         {
             transform.Rotate(Vector3.up * rotationSpeed, Space.World);
         }
-        if(time > 10)
+        if(time > 5)
         {
             time = 0;
         }
