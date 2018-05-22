@@ -55,17 +55,11 @@ public class GameManager : MonoBehaviour
             KillMode = false;
             Debug.Log("*Sheaths blade*");
         }
-
-        //Player Re-try
-        if (Input.GetKeyDown(KeyCode.Y) && hasWon)
+        if (hasWon == true)
         {
-            SceneManager.LoadScene("Main");
+            GameOverCanvas.gameObject.SetActive(true);
         }
-        //Player Exit
-        if (Input.GetKeyDown(KeyCode.Y) && hasWon)
-        {
-            SceneManager.LoadScene("Menu");
-        }
+        
     }
 
     public void LoadMenu()
@@ -91,6 +85,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("You win, do you whant to retry?");
 
+            hasWon = true;
             GameOverCanvas.gameObject.SetActive(true);
             StopAllCoroutines();
         }
@@ -99,12 +94,9 @@ public class GameManager : MonoBehaviour
         {
             switch (other.name)
             {
-                case "MR BlUE":
+                case "MR BLUE":
                     if (target == 1)
-                    {
                         Debug.Log("You Got Him Now get to the Door");
-                        hasWon = true;
-                    }
                     else
                     {
                         Debug.Log("You killed the wrong guy!!!");
@@ -115,10 +107,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case "MR RED":
                     if (target == 2)
-                    {
                         Debug.Log("You Got Him Now get to the Door");
-                        hasWon = true;
-                    }
                     else
                     {
                         Debug.Log("You killed the wrong guy!!!");
@@ -129,10 +118,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case "MR YELLOW":
                     if (target == 3)
-                    {
                         Debug.Log("You Got Him Now get to the Door");
-                        hasWon = true;
-                    }
                     else
                     {
                         Debug.Log("You killed the wrong guy!!!");
@@ -143,10 +129,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case "MR GREEN":
                     if (target == 4)
-                    {
                         Debug.Log("You Got Him Now get to the Door");
-                        hasWon = true;
-                    }
                     else
                     {
                         Debug.Log("You killed the wrong guy!!!");
@@ -157,10 +140,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case "MR BLACK":
                     if (target == 5)
-                    {
                         Debug.Log("You Got Him Now get to the Door");
-                        hasWon = true;
-                    }
                     else
                     {
                         Debug.Log("You killed the wrong guy!!!");
@@ -171,10 +151,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case "MR WHITE":
                     if (target == 6)
-                    {
                         Debug.Log("You Got Him Now get to the Door");
-                        hasWon = true;
-                    }
                     else
                     {
                         Debug.Log("You killed the wrong guy!!!");
