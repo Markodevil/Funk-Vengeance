@@ -12,24 +12,31 @@ public class UIManager : MonoBehaviour {
     [Tooltip("Canvas for the Pause Menu.")]
     public Canvas PauseCanvas;
     [SerializeField]
-    [Tooltip("Canvas for the Leave Menu.")]
-    public Canvas LeaveCanvas;
+    [Tooltip("Canvas for the Victory Menu.")]
+    public Canvas VictoryCanvas;
+    [SerializeField]
+    [Tooltip("Canvas for the Failure Menu.")]
+    public Canvas FailureCanvas;
 
     // Start
     void Start()
     {
         MainMenuCanvas.GetComponent<Canvas>();
         PauseCanvas.GetComponent<Canvas>();
-        LeaveCanvas.GetComponent<Canvas>();
+        VictoryCanvas.GetComponent<Canvas>();
+        FailureCanvas.GetComponent<Canvas>();
     }
 
     // Update
     void Update()
     {
-       //if (pause canvas exists)
-       // {
-       //    pause game
-       // }
+        if (Input.GetKey(KeyCode.KeypadEnter))
+        {
+            // Enable Pause canvas
+            PauseCanvas.gameObject.SetActive(true);
+            // Set timescale to 0 to pause the scene
+            Time.timeScale = 0;
+        }
     }
 
     // Main Menu button functions
@@ -47,22 +54,65 @@ public class UIManager : MonoBehaviour {
     }
 
     // Gameplay button functions
-    public void Gameplay_Continue()
+    public void Gameplay_Pause_Continue()
     {
-
+        // Disable Pause canvas
+        PauseCanvas.gameObject.SetActive(false);
+        // Set timescale to 1 to unpause the scene
+        Time.timeScale = 1;
     }
-    public void Gameplay_LeaveArea_Yes()
+    public void Gameplay_Pause_Quit()
     {
-
-    }
-    public void Gameplay_LeaveArea_No()
-    {
-
-    }
-    public void Gameplay_Quit()
-    {
+        // Disable Pause canvas
+        PauseCanvas.gameObject.SetActive(false);
+        // Set timescale to 1 to unpause the scene
+        Time.timeScale = 1;
         // Return to the Main Menu scene
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
     }
 
+    public void Gameplay_Victory_LeaveArea_Yes()
+    {
+        // Disable Victory canvas
+        VictoryCanvas.gameObject.SetActive(false);
+        // Set timescale to 1 to unpause the scene
+        Time.timeScale = 1;
+        // Return to the Main Menu scene
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+    }
+    public void Gameplay_Victory_LeaveArea_No()
+    {
+        // Disable Victory canvas
+        VictoryCanvas.gameObject.SetActive(false);
+        // Set timescale to 1 to unpause the scene
+        Time.timeScale = 1;
+    }
+    public void Gameplay_Victory_Quit()
+    {
+        // Disable Victory canvas
+        VictoryCanvas.gameObject.SetActive(false);
+        // Set timescale to 1 to unpause the scene
+        Time.timeScale = 1;
+        // Return to the Main Menu scene
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+    }
+
+    public void Gameplay_Failure_Retry()
+    {
+        // Disable Failure canvas
+        FailureCanvas.gameObject.SetActive(false);
+        // Set timescale to 1 to unpause the scene
+        Time.timeScale = 1;
+        // Reset the current level
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void Gameplay_Failure_Quit()
+    {
+        // Disable Failure canvas
+        FailureCanvas.gameObject.SetActive(false);
+        // Set timescale to 1 to unpause the scene
+        Time.timeScale = 1;
+        // Return to the Main Menu scene
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+    }
 }
