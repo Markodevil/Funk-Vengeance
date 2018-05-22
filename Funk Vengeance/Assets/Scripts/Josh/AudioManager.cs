@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour {
 
     // List of Sound Clips
-    public static AudioClip CaughtClip, Stab1Clip, Stab2Clip, TargetDownClip, VictoryClip, FailureClip;
+    public static AudioClip CaughtClip, Stab1Clip, Stab2Clip, TargetDownClip, VictoryClip, FailureClip, AlertClip;
     // Audio Source
     static AudioSource am;
 
@@ -29,6 +29,9 @@ public class AudioManager : MonoBehaviour {
     [SerializeField]
     [Tooltip("Audio clip when you have failed.")]
     public AudioClip Failure_SFX;
+    [SerializeField]
+    [Tooltip("Audio clip when you are seen")]
+    public AudioClip Alert_SFX;
 
     // Initialization
     void Start ()
@@ -39,6 +42,7 @@ public class AudioManager : MonoBehaviour {
         TargetDownClip = TargetDown_SFX;
         VictoryClip = Victory_SFX;
         FailureClip = Failure_SFX;
+        AlertClip = Alert_SFX;
     }
 	
     // Update
@@ -76,6 +80,10 @@ public class AudioManager : MonoBehaviour {
             // Player Victory sound
             case "Failure":
                 am.PlayOneShot(FailureClip, 1f);
+                break;
+            // Player Victory sound
+            case "Alert":
+                am.PlayOneShot(AlertClip, 1f);
                 break;
         }
     }
