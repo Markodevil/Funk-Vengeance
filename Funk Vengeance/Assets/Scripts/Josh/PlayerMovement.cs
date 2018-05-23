@@ -43,37 +43,37 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        // If colliding with an Enemy
-        if (collision.collider.tag == "Enemy")
-        {
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    // If colliding with an Enemy
+    //    if (collision.collider.tag == "Enemy")
+    //    {
 
-        }
-        // If colliding with the Target
-        if (collision.collider.tag == "Target")
-        {
+    //    }
+    //    // If colliding with the Target
+    //    if (collision.collider.tag == "Target")
+    //    {
 
-        }
+    //    }
 
-        // If colliding with the Door
-        if (collision.collider.tag == "Door")
-        {
-            // Enable Victory canvas
-            uim.VictoryCanvas.gameObject.SetActive(true);
-            // Set timescale to 0 to pause the scene
-            uim.isPaused = false;
-        }
+    //    // If colliding with the Door
+    //    if (collision.collider.tag == "Door")
+    //    {
+    //        // Enable Victory canvas
+    //        uim.VictoryCanvas.gameObject.SetActive(true);
+    //        // Set timescale to 0 to pause the scene
+    //        uim.isPaused = false;
+    //    }
 
-        // If colliding with a Powerup
-        if (collision.collider.tag == "PowerUp")
-        {
+    //    // If colliding with a Powerup
+    //    if (collision.collider.tag == "PowerUp")
+    //    {
 
-        }
-        // If colliding with a Weapon
-        if (collision.collider.tag == "Weapon")
-        {
+    //    }
+    //    // If colliding with a Weapon
+    //    if (collision.collider.tag == "Weapon")
+    //    {
 
-        }
-    }
+    //    }
+    //}
 }
