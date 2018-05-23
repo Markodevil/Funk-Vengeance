@@ -7,7 +7,7 @@ namespace AUDIO
     {
 
         // List of Sound Clips
-        public static AudioClip CaughtClip, Stab1Clip, Stab2Clip, TargetDownClip, VictoryClip, FailureClip, AlertClip, BackGroundClip;
+        public static AudioClip CaughtClip, Stab1Clip, Stab2Clip, TargetDownClip, VictoryClip, FailureClip, AlertClip;
         // Audio Source
         static AudioSource am;
 
@@ -34,9 +34,6 @@ namespace AUDIO
         [SerializeField]
         [Tooltip("Audio clip when you are seen")]
         public AudioClip Alert_SFX;
-        [SerializeField]
-        [Tooltip("BackGround Music")]
-        public AudioClip BackGround_SFX;
 
         // Initialization
         void Start()
@@ -49,7 +46,6 @@ namespace AUDIO
             VictoryClip = Victory_SFX;
             FailureClip = Failure_SFX;
             AlertClip = Alert_SFX;
-            BackGroundClip = BackGround_SFX;
         }
 
         // Update
@@ -91,10 +87,6 @@ namespace AUDIO
                 // Player Victory sound
                 case "Alert":
                     am.PlayOneShot(AlertClip, 1f);
-                    break;
-                // BackGround Music
-                case "BackGround":
-                    am.PlayOneShot(BackGroundClip, 1.0f);
                     break;
             }
         }

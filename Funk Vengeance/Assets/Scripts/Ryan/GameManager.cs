@@ -52,11 +52,6 @@ public class GameManager : MonoBehaviour
         return 5;
     }
 
-    private void Awake()
-    {
-        AudioManager.PlaySound("BackGround");
-    }
-
     // Update is called once per frame
     void Update()
     {
