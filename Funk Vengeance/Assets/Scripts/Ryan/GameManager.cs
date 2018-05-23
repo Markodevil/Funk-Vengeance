@@ -82,7 +82,7 @@ namespace GM
         }
         public void RETRY()
         {
-            SceneManager.LoadScene("Main");
+            SceneManager.LoadScene("Test_03");
         }
 
         private void OnTriggerEnter(Collider other)

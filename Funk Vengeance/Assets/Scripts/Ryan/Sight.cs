@@ -64,7 +64,7 @@ public class Sight : MonoBehaviour
             AudioManager.PlaySound("Caught");
             StopAllCoroutines();
             Debug.Log("GameOver");
-            SceneManager.LoadScene("Game Over");
+            SceneManager.LoadScene("Test_03");
         }
     }
 

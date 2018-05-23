@@ -10,41 +10,41 @@ public class PlayerMovement : MonoBehaviour {
     public float movementSpeed;
     public bool canMove = true;
 
-<<<<<<< .mine
-    [SerializeField]
-    [Tooltip("Canvas UIs.")]
-    //public GameObject canvasUIs;
-||||||| .r53
-    [SerializeField]
-    [Tooltip("Canvas UIs.")]
-    public GameObject canvasUIs;
-=======
+//<<<<<<< .mine
     //[SerializeField]
     //[Tooltip("Canvas UIs.")]
     //public GameObject canvasUIs;
->>>>>>> .r55
+//||||||| .r53
+    [SerializeField]
+    [Tooltip("Canvas UIs.")]
+    public GameObject canvasUIs;
+//=======
+    //[SerializeField]
+    //[Tooltip("Canvas UIs.")]
+    //public GameObject canvasUIs;
+//>>>>>>> .r55
 
-<<<<<<< .mine
+//<<<<<<< .mine
     public GameManager GM;
     //private UIManager uim;
-||||||| .r53
+//||||||| .r53
     private UIManager uim;
-=======
+//=======
     //private UIManager uim;
->>>>>>> .r55
+//>>>>>>> .r55
 
     void Start()
     {
         // Set the player's position
         //gameObject.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
 
-<<<<<<< .mine
+//<<<<<<< .mine
        // uim = canvasUIs.GetComponent<UIManager>();
-||||||| .r53
-        uim = canvasUIs.GetComponent<UIManager>();
-=======
+//||||||| .r53
+ //       uim = canvasUIs.GetComponent<UIManager>();
+//=======
         //uim = canvasUIs.GetComponent<UIManager>();
->>>>>>> .r55
+//>>>>>>> .r55
     }
 
     void Update()
