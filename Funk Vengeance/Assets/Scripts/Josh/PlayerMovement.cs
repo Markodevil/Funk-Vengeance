@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GM;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -9,22 +10,49 @@ public class PlayerMovement : MonoBehaviour {
     public float movementSpeed;
     public bool canMove = true;
 
+<<<<<<< .mine
+    [SerializeField]
+    [Tooltip("Canvas UIs.")]
+    //public GameObject canvasUIs;
+||||||| .r53
+    [SerializeField]
+    [Tooltip("Canvas UIs.")]
+    public GameObject canvasUIs;
+=======
     //[SerializeField]
     //[Tooltip("Canvas UIs.")]
     //public GameObject canvasUIs;
+>>>>>>> .r55
 
+<<<<<<< .mine
+    public GameManager GM;
     //private UIManager uim;
+||||||| .r53
+    private UIManager uim;
+=======
+    //private UIManager uim;
+>>>>>>> .r55
 
     void Start()
     {
         // Set the player's position
         //gameObject.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
 
+<<<<<<< .mine
+       // uim = canvasUIs.GetComponent<UIManager>();
+||||||| .r53
+        uim = canvasUIs.GetComponent<UIManager>();
+=======
         //uim = canvasUIs.GetComponent<UIManager>();
+>>>>>>> .r55
     }
 
     void Update()
     {
+        if (GM.hasWon == true)
+        {
+            movementSpeed = 0;
+        }
         // Move upwards
         if (Input.GetKey(KeyCode.W) && canMove == true)
         {
