@@ -7,37 +7,38 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField]
     [Tooltip("Player Movement speed.")]
     public float movementSpeed;
+    public bool canMove = true;
 
-    [SerializeField]
-    [Tooltip("Canvas UIs.")]
-    public GameObject canvasUIs;
+    //[SerializeField]
+    //[Tooltip("Canvas UIs.")]
+    //public GameObject canvasUIs;
 
-    private UIManager uim;
+    //private UIManager uim;
 
     void Start()
     {
         // Set the player's position
         //gameObject.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
 
-        uim = canvasUIs.GetComponent<UIManager>();
+        //uim = canvasUIs.GetComponent<UIManager>();
     }
 
     void Update()
     {
         // Move upwards
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && canMove == true)
         {
             transform.position += transform.forward * movementSpeed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && canMove == true)
         {
             transform.position += transform.forward * -movementSpeed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && canMove == true)
         {
             transform.position += transform.right * -movementSpeed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && canMove == true)
         {
             transform.position += transform.right * movementSpeed* Time.deltaTime;
         }
