@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using AUDIO;
 public class Sight : MonoBehaviour
 {
 
@@ -54,12 +54,14 @@ public class Sight : MonoBehaviour
         }
         else
         {
+            AudioManager.PlaySound("Alert");
             KillTimer += Time.deltaTime;
             Debug.Log(KillTimer);
         }
 
         if (KillTimer > KillTime)
         {
+            AudioManager.PlaySound("Caught");
             StopAllCoroutines();
             Debug.Log("GameOver");
             SceneManager.LoadScene("Game Over");

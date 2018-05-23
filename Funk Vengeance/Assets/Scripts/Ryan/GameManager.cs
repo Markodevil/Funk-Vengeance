@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using AUDIO;
 
 public class GameManager : MonoBehaviour
 {
@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour
 
         if (hasWon == true)
         {
+            AudioManager.PlaySound("Victory");
             GameOverCanvas.gameObject.SetActive(true);
         }
 
@@ -108,81 +109,111 @@ public class GameManager : MonoBehaviour
                     if (target == 1)
                     {
                         TargetKilledText.gameObject.SetActive(true);
+                        if (Random.Range(1, 2) == 1)
+                            AudioManager.PlaySound("Stab1");
+                        else
+                            AudioManager.PlaySound("Stab2");
+                        AudioManager.PlaySound("TargetDown");
+
                         other.gameObject.GetComponent<Sight>().viewRadius = 0;
                         other.gameObject.GetComponent<AI>().enabled = false;
                     }
                     else
                     {
+                        AudioManager.PlaySound("Failure");
                         WrongGuyText.gameObject.SetActive(true);
                         StopAllCoroutines();
-                        Debug.Log("GameOver");
                         SceneManager.LoadScene("Game Over");
                     }
                     break;
                 case "MR RED":
                     if (target == 2)
                     {
+                        if (Random.Range(1, 2) == 1)
+                            AudioManager.PlaySound("Stab1");
+                        else
+                            AudioManager.PlaySound("Stab2");
+                        AudioManager.PlaySound("TargetDown");
+
                         TargetKilledText.gameObject.SetActive(true);
                         other.gameObject.GetComponent<Sight>().viewRadius = 0;
                         other.gameObject.GetComponent<AI>().enabled = false;
                     }
                     else
                     {
+                        AudioManager.PlaySound("Failure");
                         WrongGuyText.gameObject.SetActive(true);
                         StopAllCoroutines();
-                        Debug.Log("GameOver");
                         SceneManager.LoadScene("Game Over");
                     }
                     break;
                 case "MR YELLOW":
                     if (target == 3)
                     {
+                        if (Random.Range(1, 2) == 1)
+                            AudioManager.PlaySound("Stab1");
+                        else
+                            AudioManager.PlaySound("Stab2");
+                        AudioManager.PlaySound("TargetDown");
+
                         TargetKilledText.gameObject.SetActive(true);
                         other.gameObject.GetComponent<Sight>().viewRadius = 0;
                         other.gameObject.GetComponent<AI>().enabled = false;
                     }
                     else
                     {
+                        AudioManager.PlaySound("Failure");
                         WrongGuyText.gameObject.SetActive(true);
                         StopAllCoroutines();
-                        Debug.Log("GameOver");
                         SceneManager.LoadScene("Game Over");
                     }
                     break;
                 case "MR GREEN":
                     if (target == 4)
                     {
+                        if (Random.Range(1, 2) == 1)
+                            AudioManager.PlaySound("Stab1");
+                        else
+                            AudioManager.PlaySound("Stab2");
+                        AudioManager.PlaySound("TargetDown");
+
                         TargetKilledText.gameObject.SetActive(true);
                         other.gameObject.GetComponent<Sight>().viewRadius = 0;
                         other.gameObject.GetComponent<AI>().enabled = false;
                     }
                     else
                     {
+                        AudioManager.PlaySound("Failure");
                         WrongGuyText.gameObject.SetActive(true);
                         StopAllCoroutines();
-                        Debug.Log("GameOver");
                         SceneManager.LoadScene("Game Over");
                     }
                     break;
                 case "MR WHITE":
                     if (target == 5)
                     {
+                        if (Random.Range(1, 2) == 1)
+                            AudioManager.PlaySound("Stab1");
+                        else
+                            AudioManager.PlaySound("Stab2");
+                        AudioManager.PlaySound("TargetDown");
+
                         TargetKilledText.gameObject.SetActive(true);
                         other.gameObject.GetComponent<Sight>().viewRadius = 0;
                         other.gameObject.GetComponent<AI>().enabled = false;
                     }
                     else
                     {
+                        AudioManager.PlaySound("Failure");
                         WrongGuyText.gameObject.SetActive(true);
                         StopAllCoroutines();
-                        Debug.Log("GameOver");
                         SceneManager.LoadScene("Game Over");
                     }
                     break;
                 case "MR BLACK":
+                    AudioManager.PlaySound("Failure");
                     WrongGuyText.gameObject.SetActive(true);
                     StopAllCoroutines();
-                    Debug.Log("GameOver");
                     SceneManager.LoadScene("Game Over");
                     break;
             }
