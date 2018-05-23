@@ -38,6 +38,7 @@ namespace AUDIO
         // Initialization
         void Start()
         {
+            am = GetComponent<AudioSource>();
             CaughtClip = Caught_SFX;
             Stab1Clip = Stab1_SFX;
             Stab2Clip = Stab2_SFX;
